@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:vm="clr-namespace:Listit.ViewModel"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Listit.View.ListPage">
+    <ContentPage.BindingContext>
+        <vm:ListViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="18, 37, 18, 50" BackgroundColor="{StaticResource orangePale}">
+            <Grid ColumnDefinitions="*,*">
+                <Label
+                    Grid.ColumnSpan="2"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="#232323"
+                    Text="Inventário"
+                    HorizontalOptions="Center"
+                    VerticalTextAlignment="Center"
+                />
+                <Label
+                    Grid.Column="1"
+                    FontSize="20"
+                    TextColor="#232323"
+                    Text="+"
+                    HorizontalOptions="End"
+                    VerticalTextAlignment="Center"
+                />
+            </Grid>
+            <StackLayout Orientation="Horizontal" Margin="0, 32, 0, 0">
+                <Label
+                    Text="Adicionado"
+                    FontSize="12"
+                    FontAttributes="Bold"
+                    TextColor="#6A6A6A"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="Center"
+                    />
+                <Frame
+                    CornerRadius="15"
+                    BackgroundColor="{StaticResource greenStrong}"
+                    VerticalOptions="Center"
+                    Padding="12, 0"
+                    >
+                    <Label
+                        Text="6"
+                        FontSize="21"
+                        TextColor="{StaticResource pinkStrong}"
+                        />
+                </Frame>
+            </StackLayout>
+            <CollectionView ItemsSource="{Binding ItemsList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Name}" />
+                            </StackLayout>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
